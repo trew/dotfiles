@@ -1,0 +1,71 @@
+[alias]
+	co = checkout
+	b = branch
+	st = status
+	ff = merge --ff-only
+	# View the SHA, description, and history graph of the latest 20 commits
+	l = log --oneline --decorate -n 20 --graph
+	# View the current working tree status using the short format
+	s = status -s
+	# Diff
+	d = diff --patch-with-stat
+	# Clone a repository including all submodules
+	c = clone --recursive
+	# Switch to a branch, creating it if necessary
+	go = checkout -B
+	# Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+	# Credit an author on the latest commit
+	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+	# Undo a `git push`
+	undopush = push -f origin HEAD^:master
+	# Fetch and fast-forward a remote-tracking branch
+	fff = "!f() { git fetch && git merge \"$1\" --ff-only; }; f"
+
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
+
+[core]
+	editor = gvim -f
+
+[color]
+	# Use colors in Git commands that are capable of colored output when outputting to the terminal
+	ui = auto
+[color "branch"]
+	current = green
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = cyan
+[merge]
+	# Include summaries of merged commits in newly created merge commit messages
+	log = true
+
+# Use `origin` as the default remote on the `master` branch in all cases
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+
+# URL shorthands
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+	insteadOf = "github:"
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
