@@ -131,9 +131,9 @@ Bundle 'groenewege/vim-less'
     vnoremap > >gv
 
     " switch between tabs
-    nnoremap ä :tabnext<CR>
-    nnoremap ö :tabprevious<CR>
     nnoremap <C-t> :tabnew<CR>
+    nnoremap <C-Tab> :tabnext<CR>
+    nnoremap <C-S-Tab> :tabprevious<CR>
 
     " force normal copy-paste, Ctrl+V works in insert mode, and Ctrl-C works
     " in visual mode
