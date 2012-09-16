@@ -16,4 +16,4 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
 # Mouse fix for Razer Deathadder, enable on computer with Razer
-# xinput --set-prop 13 "Device Accel Constant Deceleration" 2.2
+# xinput --set-prop 13 "Device Accel Constant Deceleration" 3.5
